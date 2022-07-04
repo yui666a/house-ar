@@ -12,19 +12,20 @@
       <a-entity camera></a-entity>
     </a-scene> -->
 
-    <a-scene embedded arjs="debugUIEnabled: false">
+    <a-scene embedded arjs>
       <a-assets>
-        <a-asset-item id="cow" src="./obj/tableset.obj"></a-asset-item>
-        <a-asset-item id="mtl" src="./obj/tableset.mtl"></a-asset-item>
+        <a-asset-item id="cow" src="./obj/sofa.obj"></a-asset-item>
+        <a-asset-item id="mtl" src="./obj/sofa.mtl"></a-asset-item>
       </a-assets>
       <a-marker preset="hiro">
         <a-entity
           obj-model="obj: #cow; mtl: #mtl"
           scale="0.5 0.5 0.5"
           position="0 0 0" ></a-obj-model>
-        <a-box position="0 0.5 0"></a-box>
+        <!-- <a-box position="0 0.5 0"></a-box> -->
       </a-marker>
-            <!-- <a-obj-model
+
+      <!-- <a-obj-model
         id="table"
         src="#cow"
         mtl="#mtl"
