@@ -8,15 +8,16 @@
   </head>
   <body>
     <!-- <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-      <a-assets>
-        <a-asset-item id="cow" src="./obj/tableset.obj"></a-asset-item>
-        <a-asset-item id="mtl" src="./obj/tableset.mtl"></a-asset-item>
-      </a-assets>
+      
       <a-marker type="pattern" url="./pattern.patt"> </a-marker>
       <a-entity camera></a-entity>
     </a-scene> -->
 
     <a-scene embedded arjs="debugUIEnabled: false">
+      <a-assets>
+        <a-asset-item id="cow" src="./obj/tableset.obj"></a-asset-item>
+        <a-asset-item id="mtl" src="./obj/tableset.mtl"></a-asset-item>
+      </a-assets>
       <a-obj-model
         src="#cow"
         mtl="#mtl"
