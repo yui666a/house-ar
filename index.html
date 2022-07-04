@@ -7,7 +7,23 @@
     <title>テスト</title>
   </head>
   <body>
-    <a-scene embedded arjs>
+    <!-- <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
+      <a-assets>
+        <a-asset-item id="cow" src="./obj/tableset.obj"></a-asset-item>
+        <a-asset-item id="mtl" src="./obj/tableset.mtl"></a-asset-item>
+      </a-assets>
+      <a-marker type="pattern" url="./pattern.patt"> </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene> -->
+
+    <a-scene embedded arjs="debugUIEnabled: false">
+      <a-obj-model
+        src="#cow"
+        mtl="#mtl"
+        position="5 0 -7"
+        scale=".1 .1 .1"
+      ></a-obj-model>
+
       <a-box position="5 0 -7" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder
