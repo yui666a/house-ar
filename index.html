@@ -8,7 +8,6 @@
   </head>
   <body>
     <!-- <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-      
       <a-marker type="pattern" url="./pattern.patt"> </a-marker>
       <a-entity camera></a-entity>
     </a-scene> -->
@@ -18,12 +17,20 @@
         <a-asset-item id="cow" src="./obj/tableset.obj"></a-asset-item>
         <a-asset-item id="mtl" src="./obj/tableset.mtl"></a-asset-item>
       </a-assets>
-      <a-obj-model
+      <a-marker preset="hiro">
+        <a-entity
+          obj-model="obj: #cow; mtl: #mtl"
+          scale="0.5 0.5 0.5"
+          position="0 0 0" ></a-obj-model>
+        <a-box position="0 0.5 0"></a-box>
+      </a-marker>
+            <!-- <a-obj-model
+        id="table"
         src="#cow"
         mtl="#mtl"
         position="5 0 20"
-        scale="1 1 1"
-      ></a-obj-model>
+        scale="0.5 0.5 0.5"
+      ></a-obj-model> -->
 
       <!-- <a-box position="5 0 -7" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
