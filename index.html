@@ -31,6 +31,7 @@
       <!-- x:右 y:上 z:手前-->
       <a-entity
         id="sofaObj"
+        class="clickable"
         click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
@@ -39,6 +40,7 @@
       ></a-entity>
       <a-entity
         id="sofaObj2"
+        class="clickable"
         click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
@@ -67,7 +69,7 @@
             fuse="true"
             fuse-timeout="1000"
             design="ring"
-            raycaster=""
+            raycaster="objects: .clickable"
             cursor="rayOrigin: mouse"
           >
           </a-entity>
