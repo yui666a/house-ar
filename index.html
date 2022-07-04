@@ -9,16 +9,6 @@
     <a-scene>
       <a-assets>
         <!-- 3Dモデルデータ -->
-        <!-- <a-asset-item
-          id="woman-obj"
-          src="https://rawcdn.githack.com/mrdoob/three.js/fda056fa11113c7254bfb732fb9fb7a5d38266da/examples/models/obj/female02/female02.obj"
-        ></a-asset-item> -->
-        <!-- マテリアルデータ -->
-        <!-- <a-asset-item
-          id="woman-mtl"
-          src="https://rawcdn.githack.com/mrdoob/three.js/fda056fa11113c7254bfb732fb9fb7a5d38266da/examples/models/obj/female02/female02.mtl"
-        ></a-asset-item> -->
-        <!-- 3Dモデルデータ -->
         <a-asset-item id="sofa-obj" src="./obj/couch/couch.obj"></a-asset-item>
         <!-- マテリアルデータ -->
         <a-asset-item id="sofa-mtl" src="./obj/couch/couch.mtl"></a-asset-item>
@@ -27,12 +17,13 @@
       <a-camera look-controls-enabled="false"> </a-camera>
 
       <!-- 3Dモデル -->
+      <!-- x:右 y:上 z:手前-->
       <a-entity
         id="sofaObj"
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
         position="0 0 -5"
-        rotation="0 0 0"
+        rotation="90 0 0"
       ></a-entity>
 
       <a-light
@@ -45,7 +36,7 @@
 
       <a-light type="ambient" color="#888888"> </a-light>
 
-      <a-sky color="#00ffff"></a-sky>
+      <!-- <a-sky color="#00ffff"></a-sky> -->
     </a-scene>
   </body>
 </html>
