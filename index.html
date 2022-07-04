@@ -3,14 +3,20 @@
   <head>
     <title>Hello, WebVR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame" />
-    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.js"></script>
   </head>
   <body style="margin: 0px; overflow: hidden">
     <a-scene
       embedded
       arjs="debugUIEnabled:false;trackingMethod:best;patternRatio:0.90;"
       vr-mode-ui="enabled: false"
+      inspector=""
+      keyboard-shortcuts=""
+      screenshot=""
+      device-orientation-permission-ui=""
     >
       <a-assets>
         <!-- 3Dモデルデータ --><!-- マテリアルデータ -->
@@ -36,6 +42,13 @@
         rotation="270 270 0"
         position="1 -1 -5"
       ></a-entity>
+      <a-entity
+        id="playButton"
+        click-play=""
+        geometry="primitive: plane; height: 1; width: 1"
+        position="-3 -5 -13.26"
+        rotation="0 0 0"
+      ></a-entity>
       <!-- <a-entity
         id="tableObj"
         obj-model="obj: #table-obj; mtl: #table-mtl"
@@ -43,7 +56,30 @@
         rotation="0 0 0"
         position="0 0 -5"
       ></a-entity> -->
-      <a-entity camera></a-entity>
+
+      <!-- Camera + cursor. -->
+      <a-entity id="cameraRig" position="0 1.6 0">
+        <a-camera
+          look-controls=""
+          wasd-controls=""
+          position="0 0 0"
+          camera=""
+          rotation=""
+        >
+          <a-entity
+            cursor="rayOrigin: mouse"
+            id="cursor"
+            fuse="true"
+            fuse-timeout="1000"
+            design="ring"
+            raycaster=""
+          >
+          </a-entity>
+          <!-- /cursor -->
+        </a-camera>
+        <!-- /camera -->
+      </a-entity>
     </a-scene>
+    <script type="text/javascript" src="./script.js"></script>
   </body>
 </html>
