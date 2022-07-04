@@ -1,0 +1,47 @@
+newmtl Sofa_Back_Plastic
+Kd 0 0 0
+Ke 0 0 0
+Ka 0.8 0.8 0.8
+Ks 0.24 0.24 0.24
+Ns 160
+Tr 0
+d 1
+Ni 1.5
+Tf 1 1 1
+
+newmtl Sofa_Metal
+Kd 0.9961 0.990058 1
+Ke 0 0 0
+Ka 0.4 0.4 0.4
+Ks 0.8 0.8 0.8
+Ns 500
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl Sofa_Seat
+Kd 0.9961 0.990058 1
+Ke 0 0 0
+Ka 0 0 0
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd :Users/mac/Personal/CASE/casa via lecco/textures/sofa seat.jpg
+map_Ka :Users/mac/Personal/CASE/casa via lecco/textures/sofa seat.jpg
+
+newmtl Sofa_Structure
+Kd 0.684225 0.692784 0.658657
+Ke 0 0 0
+Ka 0.8 0.8 0.8
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd :Users/mac/Personal/CASE/casa via lecco/textures/sofa structure.jpg
+
