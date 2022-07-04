@@ -16,8 +16,8 @@
         <!-- 3Dモデルデータ --><!-- マテリアルデータ -->
         <a-asset-item id="sofa-obj" src="./obj/couch/couch.obj"></a-asset-item>
         <a-asset-item id="sofa-mtl" src="./obj/couch/couch.mtl"></a-asset-item>
-        <a-asset-item id="table-obj" src="./obj/table/table.obj"></a-asset-item>
-        <a-asset-item id="table-mtl" src="./obj/table/table.mtl"></a-asset-item>
+        <!-- <a-asset-item id="table-obj" src="./obj/table/table.obj"></a-asset-item>
+        <a-asset-item id="table-mtl" src="./obj/table/table.mtl"></a-asset-item> -->
       </a-assets>
 
       <!-- 3Dモデル -->
@@ -27,15 +27,22 @@
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
         rotation="270 90 0"
-        position="-1 0 -5"
+        position="-1 -1 -5"
       ></a-entity>
       <a-entity
+        id="sofaObj"
+        obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
+        scale="1 1 1"
+        rotation="270 270 0"
+        position="1 -1 -5"
+      ></a-entity>
+      <!-- <a-entity
         id="tableObj"
         obj-model="obj: #table-obj; mtl: #table-mtl"
         scale="1 1 1"
         rotation="0 0 0"
         position="0 0 -5"
-      ></a-entity>
+      ></a-entity> -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
