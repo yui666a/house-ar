@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame" />
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
-    <title>テスト</title>
   </head>
   <body>
-    <!-- <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-      <a-marker type="pattern" url="./pattern.patt"> </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene> -->
-
     <a-scene embedded arjs>
       <a-assets>
-        <a-asset-item id="cow" src="./obj/sofa.obj"></a-asset-item>
-        <a-asset-item id="mtl" src="./obj/sofa.mtl"></a-asset-item>
+        <!-- 3Dモデルデータ -->
+        <a-asset-item
+          id="woman-obj"
+          src="https://rawcdn.githack.com/mrdoob/three.js/fda056fa11113c7254bfb732fb9fb7a5d38266da/examples/models/obj/female02/female02.obj"
+        ></a-asset-item>
+        <!-- マテリアルデータ -->
+        <a-asset-item
+          id="woman-mtl"
+          src="https://rawcdn.githack.com/mrdoob/three.js/fda056fa11113c7254bfb732fb9fb7a5d38266da/examples/models/obj/female02/female02.mtl"
+        ></a-asset-item>
       </a-assets>
-      <a-marker preset="hiro">
-        <a-entity
-          obj-model="obj: #cow; mtl: #mtl"
-          scale="0.5 0.5 0.5"
-          position="0 0 0" ></a-obj-model>
-        <!-- <a-box position="0 0.5 0"></a-box> -->
-      </a-marker>
 
-      <!-- <a-obj-model
-        id="table"
-        src="#cow"
-        mtl="#mtl"
-        position="5 0 20"
-        scale="0.5 0.5 0.5"
-      ></a-obj-model> -->
+      <a-camera look-controls-enabled="false"> </a-camera>
 
-      <!-- <a-box position="5 0 -7" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder
-        position="1 0.75 -3"
-        radius="0.5"
-        height="1.5"
-        color="#FFC65D"
-      ></a-cylinder> -->
+      <!-- 3Dモデル -->
+      <a-entity
+        id="womanObj"
+        obj-model="obj: #woman-obj; mtl: #woman-mtl"
+        scale="0.01 0.01 0.01"
+        position="0 0.75 -1.2"
+        rotation="0 0 0"
+      ></a-entity>
+
+      <!-- <a-light
+        type="directional"
+        color="#FFF"
+        intensity="0.5"
+        position="-1 1 2"
+      >
+      </a-light> -->
+
+      <!-- <a-light type="ambient" color="#888888"> </a-light> -->
+
+      <!-- <a-sky color="#00ffff"></a-sky> -->
     </a-scene>
   </body>
 </html>
