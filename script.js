@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
       // video.play();
       console.log("sofaObj クリックと")
     });
-    scene.querySelector("#sofaObj2").addEventListener("click", function (e) {
-      console.log("sofaObj2 クリックと")
-    });
+    // scene.querySelector("#sofaObj2").addEventListener("click", function (e) {
+    //   console.log("sofaObj2 クリックと")
+    // });
   }
 });
 
