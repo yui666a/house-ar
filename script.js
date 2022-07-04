@@ -11,9 +11,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   function run() {
-    scene.querySelector("#playButton").addEventListener("click", function (e) {
+    scene.querySelector("#sofaObj").addEventListener("click", function (e) {
       // video.play();
-      console.log("play クリックと")
+      console.log("sofaObj クリックと")
+    });
+    scene.querySelector("#sofaObj2").addEventListener("click", function (e) {
+      console.log("sofaObj2 クリックと")
     });
   }
 });

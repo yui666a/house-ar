@@ -3,7 +3,7 @@
   <head>
     <title>Hello, WebVR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame" />
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.js"></script>
@@ -30,24 +30,19 @@
       <!-- x:右 y:上 z:手前-->
       <a-entity
         id="sofaObj"
+        click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
         rotation="270 90 0"
         position="-1 -1 -5"
       ></a-entity>
       <a-entity
-        id="sofaObj"
+        id="sofaObj2"
+        click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
         rotation="270 270 0"
         position="1 -1 -5"
-      ></a-entity>
-      <a-entity
-        id="playButton"
-        click-play=""
-        geometry="primitive: plane; height: 1; width: 1"
-        position="-3 -5 -13.26"
-        rotation="0 0 0"
       ></a-entity>
       <!-- <a-entity
         id="tableObj"
