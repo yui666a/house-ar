@@ -8,12 +8,14 @@
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <!-- <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.js"></script> -->
+    <style type="text/css" href="./style.css"></style>
   </head>
   <body style="margin: 0px; overflow: hidden">
     <a-scene
       embedded
       arjs="debugUIEnabled:false;trackingMethod:best;patternRatio:0.90;"
       vr-mode-ui="enabled: false"
+      gesture-detector
       inspector=""
       keyboard-shortcuts=""
       screenshot=""
@@ -23,8 +25,6 @@
         <!-- 3Dモデルデータ --><!-- マテリアルデータ -->
         <a-asset-item id="sofa-obj" src="./obj/couch/couch.obj"></a-asset-item>
         <a-asset-item id="sofa-mtl" src="./obj/couch/couch.mtl"></a-asset-item>
-        <!-- <a-asset-item id="table-obj" src="./obj/table/table.obj"></a-asset-item>
-        <a-asset-item id="table-mtl" src="./obj/table/table.mtl"></a-asset-item> -->
       </a-assets>
 
       <!-- 3Dモデル -->
@@ -79,6 +79,7 @@
         <!-- /camera -->
       </a-entity>
     </a-scene>
+    <div class="console">これはテストです．</div>
     <script type="text/javascript" src="./script.js"></script>
   </body>
 </html>
