@@ -1,10 +1,12 @@
 function inputChange(event){
-  console.log('お名前は' + xPositionText.value + 'さんですね');
+  console.log('xPosition: ' + xPositionText.value );
+}
+function upClicked(){
+  console.log('xPosition: ' + xPositionText.value );
 }
 
 let xPositionText = document.getElementById('xPositionText');
 xPositionText.addEventListener('change', inputChange);
-// let msg = document.getElementById('msg');
 
 
 AFRAME.registerComponent('collider-check', {
