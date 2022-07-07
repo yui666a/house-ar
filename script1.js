@@ -1,20 +1,14 @@
+function upClicked(objName) {
+  let obj = document.getElementById(objName);
+  let position = obj.getAttribute("position");
+  // let rotation = obj.getAttribute('rotation');
 
+  position.x = document.getElementById("xPositionText").value;
+  position.y = document.getElementById("yPositionText").value;
+  position.z = document.getElementById("zPositionText").value;
 
-function upClicked(objName){
-  var obj = document.getElementById(objName);
-  var position = obj.getAttribute('position');
-  position.x += 1;
-
-  let xPositionText = document.getElementById('xPositionText');
-  console.log("xPositionText" + xPositionText.value)
-
-  // var rotation = obj.getAttribute('rotation');
-  obj.setAttribute('position', position);
-  console.log('position.x: '+position.x);
+  obj.setAttribute("position", position);
 }
-
-
-
 
 // AFRAME.registerComponent('collider-check', {
 //   dependencies: ['raycaster'],
