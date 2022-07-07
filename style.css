@@ -3,11 +3,13 @@
   color: #000;
   font-family: monospace;
   font-size: 12px;
-  padding: 5px;
   position: fixed;
   right: 0;
   bottom: 0;
-  width: 99%;
+  width: 100vw;
   height: 100px;
   z-index: 9999;
+}
+.console-obj1{
+  padding: 5px;
 }

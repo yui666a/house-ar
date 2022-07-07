@@ -1,32 +1,35 @@
-let xPositionText = document.getElementById('xPositionText');
-xPositionText.addEventListener('change', inputChange);
+// let xPositionText = document.getElementById('xPositionText');
+// xPositionText.addEventListener('change', inputChange);
 
-function inputChange(event){
-  console.log('xPosition: ' + xPositionText.value );
-}
+// function inputChange(event){
+//   console.log('xPosition: ' + xPositionText.value );
+// }
+
 function upClicked(){
   var sofa1 = document.getElementById('sofaObj');
   var position = sofa1.getAttribute('position');
   position.x += 1;
 
-  // var rotation = sofa1.getAttribute('rotation');
-  console.log('position.x: '+position.x);
-  sofa1.setAttribute('position', position);
+  let xPositionText = document.getElementById('xPositionText');
+  console.log("xPositionText" + xPositionText.value)
 
+  // var rotation = sofa1.getAttribute('rotation');
+  // console.log('position.x: '+position.x);
+  sofa1.setAttribute('position', position);
 }
 
 
 
 
-AFRAME.registerComponent('collider-check', {
-  dependencies: ['raycaster'],
+// AFRAME.registerComponent('collider-check', {
+//   dependencies: ['raycaster'],
 
-  init: function () {
-    this.el.addEventListener('raycaster-intersection', function () {
-      console.log('Player hit something!');
-    });
-  }
-});
+//   init: function () {
+//     this.el.addEventListener('raycaster-intersection', function () {
+//       console.log('Player hit something!');
+//     });
+//   }
+// });
 
 // var video = document.getElementById("bird");
 // var music_on = document.getElementById("music_on");
