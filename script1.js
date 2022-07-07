@@ -1,4 +1,4 @@
-function positionUpdate(objName) {
+function updateObjectAttribute(objName) {
   let obj = document.getElementById(objName);
   let position = obj.getAttribute("position");
   // let rotation = obj.getAttribute('rotation');
