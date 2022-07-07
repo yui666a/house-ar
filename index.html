@@ -16,7 +16,7 @@
       <div class="console-obj1">
         X:
         <input
-          id="xPositionText"
+          id="obj1-xPositionText"
           type="number"
           value="0"
           min="-100"
@@ -25,7 +25,7 @@
         />
         Y:
         <input
-          id="yPositionText"
+          id="obj1-yPositionText"
           type="number"
           value="0"
           min="-100"
@@ -34,14 +34,44 @@
         />
         Z:
         <input
-          id="zPositionText"
+          id="obj1-zPositionText"
           type="number"
           value="0"
           min="-100"
           max="100"
           step="0.1"
         />
-        <input type="button" value="移動" onclick="upClicked('sofaObj')" />
+        <input type="button" value="移動" onclick="upClicked('obj1')" />
+      </div>
+      <div class="console-obj2">
+        X:
+        <input
+          id="obj2-xPositionText"
+          type="number"
+          value="0"
+          min="-100"
+          max="100"
+          step="0.1"
+        />
+        Y:
+        <input
+          id="obj2-yPositionText"
+          type="number"
+          value="0"
+          min="-100"
+          max="100"
+          step="0.1"
+        />
+        Z:
+        <input
+          id="obj2-zPositionText"
+          type="number"
+          value="0"
+          min="-100"
+          max="100"
+          step="0.1"
+        />
+        <input type="button" value="移動" onclick="upClicked('obj2')" />
       </div>
     </div>
     <a-scene
@@ -63,7 +93,7 @@
       <!-- 3Dモデル -->
       <!-- x:右 y:上 z:手前-->
       <a-entity
-        id="sofaObj"
+        id="obj1"
         class="clickable"
         click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
@@ -73,7 +103,7 @@
         geometry="primitive: plane; height: 1; width: 1"
       ></a-entity>
       <a-entity
-        id="sofaObj2"
+        id="obj2"
         class="clickable"
         click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"

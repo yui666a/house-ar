@@ -3,9 +3,9 @@ function upClicked(objName) {
   let position = obj.getAttribute("position");
   // let rotation = obj.getAttribute('rotation');
 
-  position.x = document.getElementById("xPositionText").value;
-  position.y = document.getElementById("yPositionText").value;
-  position.z = document.getElementById("zPositionText").value;
+  position.x = document.getElementById(objName+"-xPositionText").value;
+  position.y = document.getElementById(objName+"-yPositionText").value;
+  position.z = document.getElementById(objName+"-zPositionText").value;
 
   obj.setAttribute("position", position);
 }
