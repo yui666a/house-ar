@@ -1,12 +1,3 @@
-function inputChange(event){
-  console.log('xPosition: ' + xPositionText.value );
-}
-function upClicked(){
-  console.log('xPosition: ' + xPositionText.value );
-}
-
-let xPositionText = document.getElementById('xPositionText');
-xPositionText.addEventListener('change', inputChange);
 
 
 AFRAME.registerComponent('collider-check', {

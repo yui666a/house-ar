@@ -1,21 +1,16 @@
-// let xPositionText = document.getElementById('xPositionText');
-// xPositionText.addEventListener('change', inputChange);
 
-// function inputChange(event){
-//   console.log('xPosition: ' + xPositionText.value );
-// }
 
-function upClicked(){
-  var sofa1 = document.getElementById('sofaObj');
-  var position = sofa1.getAttribute('position');
+function upClicked(objName){
+  var obj = document.getElementById(objName);
+  var position = obj.getAttribute('position');
   position.x += 1;
 
   let xPositionText = document.getElementById('xPositionText');
   console.log("xPositionText" + xPositionText.value)
 
-  // var rotation = sofa1.getAttribute('rotation');
-  // console.log('position.x: '+position.x);
-  sofa1.setAttribute('position', position);
+  // var rotation = obj.getAttribute('rotation');
+  obj.setAttribute('position', position);
+  console.log('position.x: '+position.x);
 }
 
 
