@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Ks -s 4.000000 4.000000 1.000000 Textures\\Couch Texture\\FabricUpholsteryMossPlainWeave001_GLOSS_1K.jpg
+map_Ks -s 4.000000 4.000000 1.000000 FabricUpholsteryMossPlainWeave001_GLOSS_1K.jpg
 
 newmtl Metal
 Ns 575.999996
@@ -21,5 +21,5 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 3
-map_Bump Textures\\Metal\\Metal032_2K_Normal.jpg
-refl Textures\\Metal\\Metal032_2K_Metalness.jpg
+map_Bump Metal032_2K_Normal.jpg
+refl Metal032_2K_Metalness.jpg
