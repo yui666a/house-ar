@@ -10,7 +10,8 @@ function updateObjectAttribute(objName) {
   obj.setAttribute("position", position);
 
   let isVisible = document.getElementById(objName+"-isDisplay").checked;
-  obj.addAttribute("visible", isVisible);
+  console.log(isVisible);
+  obj.addAttribute("visible", false);
 }
 
 
