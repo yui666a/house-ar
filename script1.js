@@ -9,7 +9,7 @@ function updateObjectAttribute(objName) {
 
   obj.setAttribute("position", position);
 
-  let isVisible = document.getElementById(objName+"-xPositionText").checked;
+  let isVisible = document.getElementById(objName+"-isDisplay").checked;
   obj.addAttribute("visible", isVisible);
 }
 
