@@ -1,4 +1,4 @@
-function upClicked(objName) {
+function positionUpdate(objName) {
   let obj = document.getElementById(objName);
   let position = obj.getAttribute("position");
   // let rotation = obj.getAttribute('rotation');
@@ -8,7 +8,11 @@ function upClicked(objName) {
   position.z = document.getElementById(objName+"-zPositionText").value;
 
   obj.setAttribute("position", position);
+
+  let isVisible = document.getElementById(objName+"-xPositionText").checked;
+  obj.addAttribute("visible", isVisible);
 }
+
 
 // AFRAME.registerComponent('collider-check', {
 //   dependencies: ['raycaster'],
