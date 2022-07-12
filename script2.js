@@ -1,6 +1,7 @@
 const obj1xPosBar = document.getElementById("obj1-xPositionBar"); // input要素
 const obj1yPosBar = document.getElementById("obj1-yPositionBar"); // input要素
 const obj1zPosBar = document.getElementById("obj1-zPositionBar"); // input要素
+const obj1ScaleBar = document.getElementById("obj1-ScaleBar"); // input要素
 
 // inputイベント時に値をセットする関数
 function rangePosBarOnChange(e) {
@@ -25,8 +26,21 @@ function rangePosBarOnChange(e) {
     position.z = e.target.value;
     posZTxt.value = position.z;
   }
-
   updateObjectPosition(objName, position.x, position.y, position.z);
+}
+
+// inputイベント時に値をセットする関数
+function rangeScaleBarOnChange(e) {
+  const objName = this.name;
+  let obj = document.getElementById(objName);
+  let scale = obj.getAttribute("scale");
+
+  scale.x = e.target.value;
+  scale.y = e.target.value;
+  scale.z = e.target.value;
+  document.getElementById(objName + "-ScaleText").value = scale.x;
+
+  obj.setAttribute("scale", scale);
 }
 
 window.onload = () => {
@@ -44,6 +58,10 @@ window.onload = () => {
     handleEvent: rangePosBarOnChange,
     name: "obj1",
     axis: "z",
+  });
+  obj1ScaleBar.addEventListener("input", {
+    handleEvent: rangeScaleBarOnChange,
+    name: "obj1",
   });
 };
 
