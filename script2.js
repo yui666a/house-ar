@@ -8,16 +8,22 @@ function rangePosBarOnChange(e) {
   let obj = document.getElementById(objName);
   let position = obj.getAttribute("position");
 
-  position.x = document.getElementById(objName + "-xPositionText").value;
-  position.y = document.getElementById(objName + "-yPositionText").value;
-  position.z = document.getElementById(objName + "-zPositionText").value;
+  let posXTxt = document.getElementById(objName + "-xPositionTxt");
+  let posYTxt = document.getElementById(objName + "-yPositionTxt");
+  let posZTxt = document.getElementById(objName + "-zPositionTxt");
+  position.x = posXTxt.value;
+  position.y = posYTxt.value;
+  position.z = posZTxt.value;
 
   if (this.axis === "x") {
     position.x = e.target.value;
+    posXTxt.value = position.x;
   } else if (this.axis === "y") {
     position.y = e.target.value;
+    posYTxt.value = position.y;
   } else if (this.axis === "z") {
     position.z = e.target.value;
+    posZTxt.value = position.z;
   }
 
   updateObjectPosition(objName, position.x, position.y, position.z);
