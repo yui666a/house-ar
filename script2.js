@@ -8,9 +8,9 @@ function rangePosBarOnChange(e) {
   let obj = document.getElementById(objName);
   let position = obj.getAttribute("position");
 
-  let posXTxt = document.getElementById(objName + "-xPositionTxt");
-  let posYTxt = document.getElementById(objName + "-yPositionTxt");
-  let posZTxt = document.getElementById(objName + "-zPositionTxt");
+  let posXTxt = document.getElementById(objName + "-xPositionText");
+  let posYTxt = document.getElementById(objName + "-yPositionText");
+  let posZTxt = document.getElementById(objName + "-zPositionText");
   position.x = posXTxt.value;
   position.y = posYTxt.value;
   position.z = posZTxt.value;
