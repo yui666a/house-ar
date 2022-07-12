@@ -32,7 +32,7 @@ function rangePosBarOnChange(e) {
   updateObjectPosition(objName, position.x, position.y, position.z);
 }
 
-function rangePosBarOnChange(e) {
+function rangeRotBarOnChange(e) {
   const objName = this.name;
   let obj = document.getElementById(objName);
   let rotation = obj.getAttribute("rotation");
