@@ -8,9 +8,17 @@ function rangePosBarOnChange(e) {
   let obj = document.getElementById(objName);
   let position = obj.getAttribute("position");
 
-  position.x = e.target.value;
+  position.x = document.getElementById(objName + "-xPositionText").value;
   position.y = document.getElementById(objName + "-yPositionText").value;
   position.z = document.getElementById(objName + "-zPositionText").value;
+
+  if (this.axis === "x") {
+    position.x = e.target.value;
+  } else if (this.axis === "y") {
+    position.y = e.target.value;
+  } else if (this.axis === "z") {
+    position.z = e.target.value;
+  }
 
   updateObjectPosition(objName, position.x, position.y, position.z);
 }
@@ -19,14 +27,17 @@ window.onload = () => {
   obj1xPosBar.addEventListener("input", {
     handleEvent: rangePosBarOnChange,
     name: "obj1",
+    axis: "x",
   });
   obj1yPosBar.addEventListener("input", {
     handleEvent: rangePosBarOnChange,
     name: "obj1",
+    axis: "y",
   });
   obj1zPosBar.addEventListener("input", {
     handleEvent: rangePosBarOnChange,
     name: "obj1",
+    axis: "z",
   });
 };
 
