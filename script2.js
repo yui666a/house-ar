@@ -16,9 +16,9 @@ const rangePosBarOnChange = (e) => {
 };
 
 window.onload = () => {
-  obj1xPosBar.addEventListener("input", rangeOnChange); // スライダー変化時にイベントを発火
-  obj1yPosBar.addEventListener("input", rangeOnChange); // スライダー変化時にイベントを発火
-  obj1zPosBar.addEventListener("input", rangeOnChange); // スライダー変化時にイベントを発火
+  obj1xPosBar.addEventListener("input", rangePosBarOnChange); // スライダー変化時にイベントを発火
+  obj1yPosBar.addEventListener("input", rangePosBarOnChange); // スライダー変化時にイベントを発火
+  obj1zPosBar.addEventListener("input", rangePosBarOnChange); // スライダー変化時にイベントを発火
 };
 
 AFRAME.registerComponent("collider-check", {
