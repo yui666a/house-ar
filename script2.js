@@ -2,6 +2,9 @@ const obj1xPosBar = document.getElementById("obj1-xPositionBar"); // input要素
 const obj1yPosBar = document.getElementById("obj1-yPositionBar"); // input要素
 const obj1zPosBar = document.getElementById("obj1-zPositionBar"); // input要素
 const obj1ScaleBar = document.getElementById("obj1-ScaleBar"); // input要素
+const obj1xRotBar = document.getElementById("obj1-xRotationBar"); // input要素
+const obj1yRotBar = document.getElementById("obj1-yRotationBar"); // input要素
+const obj1zRotBar = document.getElementById("obj1-zRotationBar"); // input要素
 
 // inputイベント時に値をセットする関数
 function rangePosBarOnChange(e) {
@@ -27,6 +30,31 @@ function rangePosBarOnChange(e) {
     posZTxt.value = position.z;
   }
   updateObjectPosition(objName, position.x, position.y, position.z);
+}
+
+function rangePosBarOnChange(e) {
+  const objName = this.name;
+  let obj = document.getElementById(objName);
+  let rotation = obj.getAttribute("rotation");
+
+  let rotXTxt = document.getElementById(objName + "-xRotationText");
+  let rotYTxt = document.getElementById(objName + "-yRotationText");
+  let rotZTxt = document.getElementById(objName + "-zRotationText");
+  rotation.x = rotXTxt.value;
+  rotation.y = rotYTxt.value;
+  rotation.z = rotZTxt.value;
+
+  if (this.axis === "x") {
+    rotation.x = e.target.value;
+    rotXTxt.value = rotation.x;
+  } else if (this.axis === "y") {
+    rotation.y = e.target.value;
+    rotYTxt.value = rotation.y;
+  } else if (this.axis === "z") {
+    rotation.z = e.target.value;
+    rotZTxt.value = rotation.z;
+  }
+  updateObjectRotation(objName, rotation.x, rotation.y, rotation.z);
 }
 
 // inputイベント時に値をセットする関数
@@ -62,6 +90,22 @@ window.onload = () => {
   obj1ScaleBar.addEventListener("input", {
     handleEvent: rangeScaleBarOnChange,
     name: "obj1",
+  });
+  
+  obj1xRotBar.addEventListener("input", {
+    handleEvent: rangeRotBarOnChange,
+    name: "obj1",
+    axis: "x",
+  });
+  obj1yRotBar.addEventListener("input", {
+    handleEvent: rangeRotBarOnChange,
+    name: "obj1",
+    axis: "y",
+  });
+  obj1zRotBar.addEventListener("input", {
+    handleEvent: rangeRotBarOnChange,
+    name: "obj1",
+    axis: "z",
   });
 };
 
