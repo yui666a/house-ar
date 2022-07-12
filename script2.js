@@ -1,24 +1,34 @@
-const inputElem = document.getElementById('obj1-xPositionBar'); // input要素
+const obj1xPosBar = document.getElementById("obj1-xPositionBar"); // input要素
+const obj1yPosBar = document.getElementById("obj1-yPositionBar"); // input要素
+const obj1zPosBar = document.getElementById("obj1-zPositionBar"); // input要素
 
 // inputイベント時に値をセットする関数
-const rangeOnChange = (e) =>{
-  console.log(e.target.value);
-}
+const rangePosBarOnChange = (e) => {
+  const objName = "obj1";
+  let obj = document.getElementById(objName);
+  let position = obj.getAttribute("position");
+
+  position.x = e.target.value;
+  position.y = document.getElementById(objName + "-yPositionText").value;
+  position.z = document.getElementById(objName + "-zPositionText").value;
+
+  updateObjectPosition(objName, position.x, position.y, position.z);
+};
 
 window.onload = () => {
-  inputElem.addEventListener('input', rangeOnChange); // スライダー変化時にイベントを発火
-  console.log("onload:" + inputElem.value); // ページ読み込み時に値をセット
-}
+  obj1xPosBar.addEventListener("input", rangeOnChange); // スライダー変化時にイベントを発火
+  obj1yPosBar.addEventListener("input", rangeOnChange); // スライダー変化時にイベントを発火
+  obj1zPosBar.addEventListener("input", rangeOnChange); // スライダー変化時にイベントを発火
+};
 
-
-AFRAME.registerComponent('collider-check', {
-  dependencies: ['raycaster'],
+AFRAME.registerComponent("collider-check", {
+  dependencies: ["raycaster"],
 
   init: function () {
-    this.el.addEventListener('raycaster-intersection', function () {
-      console.log('Player hit something!');
+    this.el.addEventListener("raycaster-intersection", function () {
+      console.log("Player hit something!");
     });
-  }
+  },
 });
 
 // var video = document.getElementById("bird");

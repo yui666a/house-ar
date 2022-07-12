@@ -3,14 +3,22 @@ function updateObjectAttribute(objName) {
   let position = obj.getAttribute("position");
   // let rotation = obj.getAttribute('rotation');
 
-  position.x = document.getElementById(objName+"-xPositionText").value;
-  position.y = document.getElementById(objName+"-yPositionText").value;
-  position.z = document.getElementById(objName+"-zPositionText").value;
+  position.x = document.getElementById(objName + "-xPositionText").value;
+  position.y = document.getElementById(objName + "-yPositionText").value;
+  position.z = document.getElementById(objName + "-zPositionText").value;
 
   obj.setAttribute("position", position);
 
-  let isVisible = document.getElementById(objName+"-isDisplay").checked;
+  let isVisible = document.getElementById(objName + "-isDisplay").checked;
   obj.setAttribute("visible", isVisible);
+}
+function updateObjectPosition(objName, x, y, z) {
+  let obj = document.getElementById(objName);
+  let position = obj.getAttribute("position");
+  position.x = x;
+  position.y = y;
+  position.z = z;
+  obj.setAttribute("position", position);
 }
 
 // AFRAME.registerComponent('collider-check', {
