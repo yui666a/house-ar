@@ -6,6 +6,14 @@ const obj1xRotBar = document.getElementById("obj1-xRotationBar"); // input要素
 const obj1yRotBar = document.getElementById("obj1-yRotationBar"); // input要素
 const obj1zRotBar = document.getElementById("obj1-zRotationBar"); // input要素
 
+const obj2xPosBar = document.getElementById("obj2-xPositionBar"); // input要素
+const obj2yPosBar = document.getElementById("obj2-yPositionBar"); // input要素
+const obj2zPosBar = document.getElementById("obj2-zPositionBar"); // input要素
+const obj2ScaleBar = document.getElementById("obj2-ScaleBar"); // input要素
+const obj2xRotBar = document.getElementById("obj2-xRotationBar"); // input要素
+const obj2yRotBar = document.getElementById("obj2-yRotationBar"); // input要素
+const obj2zRotBar = document.getElementById("obj2-zRotationBar"); // input要素
+
 // inputイベント時に値をセットする関数
 function rangePosBarOnChange(e) {
   const objName = this.name;
@@ -107,6 +115,43 @@ window.onload = () => {
     name: "obj1",
     axis: "z",
   });
+
+  obj2xPosBar.addEventListener("input", {
+    handleEvent: rangePosBarOnChange,
+    name: "obj2",
+    axis: "x",
+  });
+  obj2yPosBar.addEventListener("input", {
+    handleEvent: rangePosBarOnChange,
+    name: "obj2",
+    axis: "y",
+  });
+  obj2zPosBar.addEventListener("input", {
+    handleEvent: rangePosBarOnChange,
+    name: "obj2",
+    axis: "z",
+  });
+  obj2ScaleBar.addEventListener("input", {
+    handleEvent: rangeScaleBarOnChange,
+    name: "obj2",
+  });
+  
+  obj2xRotBar.addEventListener("input", {
+    handleEvent: rangeRotBarOnChange,
+    name: "obj2",
+    axis: "x",
+  });
+  obj2yRotBar.addEventListener("input", {
+    handleEvent: rangeRotBarOnChange,
+    name: "obj2",
+    axis: "y",
+  });
+  obj2zRotBar.addEventListener("input", {
+    handleEvent: rangeRotBarOnChange,
+    name: "obj2",
+    axis: "z",
+  });
+
 };
 
 AFRAME.registerComponent("collider-check", {

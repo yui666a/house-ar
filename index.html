@@ -24,8 +24,8 @@
     >
       <a-assets>
         <!-- 3Dモデルデータ --><!-- マテリアルデータ -->
-        <!-- <a-asset-item id="sofa-obj" src="./obj/couch/couch.obj"></a-asset-item>
-        <a-asset-item id="sofa-mtl" src="./obj/couch/couch.mtl"></a-asset-item> -->
+        <a-asset-item id="couch-obj" src="./obj/couch/couch.obj"></a-asset-item>
+        <a-asset-item id="couch-mtl" src="./obj/couch/couch.mtl"></a-asset-item>
         <a-asset-item id="sofa-obj" src="./obj/sofa2/sofa.obj"></a-asset-item>
         <a-asset-item id="sofa-mtl" src="./obj/sofa2/sofa.mtl"></a-asset-item>
       </a-assets>
@@ -38,7 +38,7 @@
         click-play=""
         obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
         scale="1 1 1"
-        rotation="270 90 0"
+        rotation="0 0 0"
         position="-1 -1 -5"
         geometry="primitive: plane; height: 1; width: 1"
       ></a-entity>
@@ -46,18 +46,11 @@
         id="obj2"
         class="clickable"
         click-play=""
-        obj-model="obj: #sofa-obj; mtl: #sofa-mtl"
+        obj-model="obj: #couch-obj; mtl: #couch-mtl"
         scale="1 1 1"
         rotation="270 270 0"
         position="1 -1 -5"
       ></a-entity>
-      <!-- <a-entity
-        id="tableObj"
-        obj-model="obj: #table-obj; mtl: #table-mtl"
-        scale="1 1 1"
-        rotation="0 0 0"
-        position="0 0 -5"
-      ></a-entity> -->
 
       <!-- Camera + cursor. -->
       <a-entity id="cameraRig" position="0 1.6 0">
@@ -130,7 +123,7 @@
           <input
             id="obj1-zPositionText"
             type="number"
-            value="0"
+            value="-5"
             min="-100"
             max="100"
             step="0.1"
@@ -226,7 +219,148 @@
           />
         </div>
       </div>
-      <div class="console-obj2"></div>
+
+      <div class="console-obj2">
+        <input type="checkbox" id="obj2-isDisplay" checked />
+        <div>
+          X:
+          <input
+            id="obj2-xPositionText"
+            type="number"
+            value="0"
+            min="-100"
+            max="100"
+            step="0.1"
+          />
+          <input
+            type="range"
+            min="-10"
+            max="10"
+            step="0.1"
+            value="0"
+            id="obj2-xPositionBar"
+          />
+        </div>
+        <div>
+          Y:
+          <input
+            id="obj2-yPositionText"
+            type="number"
+            value="0"
+            min="-100"
+            max="100"
+            step="0.1"
+          />
+          <input
+            type="range"
+            min="-10"
+            max="10"
+            step="0.1"
+            value="0"
+            id="obj2-yPositionBar"
+          />
+        </div>
+        <div>
+          Z:
+          <input
+            id="obj2-zPositionText"
+            type="number"
+            value="-5"
+            min="-100"
+            max="100"
+            step="0.1"
+          />
+          <input
+            type="range"
+            min="-10"
+            max="10"
+            step="0.1"
+            value="0"
+            id="obj2-zPositionBar"
+          />
+        </div>
+        <div>
+          Scale:
+          <input
+            id="obj2-ScaleText"
+            type="number"
+            value="1"
+            min="0"
+            max="100"
+            step="0.1"
+          />
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value="1"
+            step="0.1"
+            id="obj2-ScaleBar"
+          />
+        </div>
+        <div>
+          X:
+          <input
+            id="obj2-xRotationText"
+            type="number"
+            value="0"
+            min="0"
+            max="360"
+            step="1"
+          />
+          <input
+            type="range"
+            min="0"
+            max="360"
+            step="1"
+            value="0"
+            id="obj2-xRotationBar"
+          />
+        </div>
+        <div>
+          Y:
+          <input
+            id="obj2-yRotationText"
+            type="number"
+            value="0"
+            min="0"
+            max="360"
+            step="1"
+          />
+          <input
+            type="range"
+            min="0"
+            max="360"
+            step="1"
+            value="0"
+            id="obj2-yRotationBar"
+          />
+        </div>
+        <div>
+          Z:
+          <input
+            id="obj2-zRotationText"
+            type="number"
+            value="0"
+            min="0"
+            max="360"
+            step="1"
+          />
+          <input
+            type="range"
+            min="0"
+            max="360"
+            step="1"
+            value="0"
+            id="obj2-zRotationBar"
+          />
+          <input
+            type="button"
+            value="更新"
+            onclick="updateObjectAttribute('obj2')"
+          />
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="./script2.js"></script>
   </body>
