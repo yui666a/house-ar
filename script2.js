@@ -3,8 +3,8 @@ const obj1yPosBar = document.getElementById("obj1-yPositionBar"); // input要素
 const obj1zPosBar = document.getElementById("obj1-zPositionBar"); // input要素
 
 // inputイベント時に値をセットする関数
-const rangePosBarOnChange = (e) => {
-  const objName = "obj1";
+function rangePosBarOnChange(e) {
+  const objName = this.name;
   let obj = document.getElementById(objName);
   let position = obj.getAttribute("position");
 
@@ -13,12 +13,21 @@ const rangePosBarOnChange = (e) => {
   position.z = document.getElementById(objName + "-zPositionText").value;
 
   updateObjectPosition(objName, position.x, position.y, position.z);
-};
+}
 
 window.onload = () => {
-  obj1xPosBar.addEventListener("input", rangePosBarOnChange); // スライダー変化時にイベントを発火
-  obj1yPosBar.addEventListener("input", rangePosBarOnChange); // スライダー変化時にイベントを発火
-  obj1zPosBar.addEventListener("input", rangePosBarOnChange); // スライダー変化時にイベントを発火
+  obj1xPosBar.addEventListener("input", {
+    handleEvent: rangePosBarOnChange,
+    name: "obj1",
+  });
+  obj1yPosBar.addEventListener("input", {
+    handleEvent: rangePosBarOnChange,
+    name: "obj1",
+  });
+  obj1zPosBar.addEventListener("input", {
+    handleEvent: rangePosBarOnChange,
+    name: "obj1",
+  });
 };
 
 AFRAME.registerComponent("collider-check", {
