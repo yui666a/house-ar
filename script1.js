@@ -14,6 +14,19 @@ function updateObjectAttribute(objName) {
 }
 
 
+const inputElem = document.getElementById('obj1-xPositionBar'); // input要素
+
+// inputイベント時に値をセットする関数
+const rangeOnChange = (e) =>{
+  console.log(e.target.value);
+}
+
+window.onload = () => {
+  inputElem.addEventListener('input', rangeOnChange); // スライダー変化時にイベントを発火
+  console.log("onload:" + inputElem.value); // ページ読み込み時に値をセット
+}
+
+
 // AFRAME.registerComponent('collider-check', {
 //   dependencies: ['raycaster'],
 
