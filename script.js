@@ -326,15 +326,33 @@ const ObjectConsole = (props) => {
   );
 };
 
-class Console extends React.Component {
-  render() {
-    return (
-      <div>
-        {/* console window */}
-        <ObjectConsole objName="obj1" />
+const Console = () => {
+  const [selectedObject, setSelectedObject] = useState("obj1");
+  return (
+    <div>
+      <div className="console-attribute-selector">
+        <label onChange={() => setSelectedObject("obj1")}>
+          <input
+            type="radio"
+            value="obj1"
+            label="obj1"
+          />
+          obj1
+        </label>
+        <label onChange={() => setSelectedObject("obj2")}>
+          <input
+            type="radio"
+            value="obj2"
+            label="obj2"
+          />
+          obj2
+        </label>
       </div>
-    );
-  }
-}
+
+      {/* console window */}
+      <ObjectConsole objName={selectedObject} />
+    </div>
+  );
+};
 
 ReactDOM.render(<Console />, document.querySelector("#console"));
