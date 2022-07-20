@@ -282,7 +282,7 @@ const ObjectConsole = (props) => {
   }
 
   return (
-    <div class={"console-" + objName}>
+    <div className={"console-" + objName}>
       {/* TODO: checkbox does not work*/}
       <input
         type="checkbox"
@@ -330,41 +330,45 @@ const ObjectConsole = (props) => {
 
 const Console = () => {
   const [selectedObject, setSelectedObject] = useState("obj1");
-  const [isDisplayed, setDisplayed] = useState(true);
-  return (
-    <div>
-      {isDisplayed && (
-        <div>
-          <div className="console-attribute-selector">
-            <label onChange={() => setSelectedObject("obj1")}>
-              <input
-                type="radio"
-                name="console-object"
-                checked={selectedObject === "obj1"}
-                value="obj1"
-                label="obj1"
-              />
-              obj1
-            </label>
-            <label onChange={() => setSelectedObject("obj2")}>
-              <input
-                type="radio"
-                name="console-object"
-                checked={selectedObject === "obj2"}
-                value="obj2"
-                label="obj2"
-              />
-              obj2
-            </label>
-            <div onClick={() =>setDisplayed(false)}>XXXX</div>
-          </div>
-          {/* console window */}
-          <ObjectConsole objName={selectedObject} />
+  const [isDisplayed, setDisplayed] = useState(false);
+  return !isDisplayed ? (
+    <div className="console-display-button" onClick={() => setDisplayed(true)}>
+      <span>Console</span>
+    </div>
+  ) : (
+    <div className="console-window">
+      <div className="console-header">
+        <div className="console-attribute-selector">
+          <label onChange={() => setSelectedObject("obj1")}>
+            <input
+              type="radio"
+              name="console-object"
+              checked={selectedObject === "obj1"}
+              value="obj1"
+              label="obj1"
+            />
+            obj1
+          </label>
+          <label onChange={() => setSelectedObject("obj2")}>
+            <input
+              type="radio"
+              name="console-object"
+              checked={selectedObject === "obj2"}
+              value="obj2"
+              label="obj2"
+            />
+            obj2
+          </label>
         </div>
-      )}
-      {!isDisplayed && (
-        <div onClick={() =>setDisplayed(true)}>Console</div>
-      )}
+        <div
+          className="console-undisplayed-button"
+          onClick={() => setDisplayed(false)}
+        >
+          <span>x</span>
+        </div>
+      </div>
+      {/* console window */}
+      <ObjectConsole objName={selectedObject} />
     </div>
   );
 };
