@@ -330,33 +330,41 @@ const ObjectConsole = (props) => {
 
 const Console = () => {
   const [selectedObject, setSelectedObject] = useState("obj1");
+  const [isDisplayed, setDisplayed] = useState(true);
   return (
     <div>
-      <div className="console-attribute-selector">
-        <label onChange={() => setSelectedObject("obj1")}>
-          <input
-            type="radio"
-            name="console-object"
-            checked={selectedObject === "obj1"}
-            value="obj1"
-            label="obj1"
-          />
-          obj1
-        </label>
-        <label onChange={() => setSelectedObject("obj2")}>
-          <input
-            type="radio"
-            name="console-object"
-            checked={selectedObject === "obj2"}
-            value="obj2"
-            label="obj2"
-          />
-          obj2
-        </label>
-      </div>
-
-      {/* console window */}
-      <ObjectConsole objName={selectedObject} />
+      {isDisplayed && (
+        <div>
+          <div className="console-attribute-selector">
+            <label onChange={() => setSelectedObject("obj1")}>
+              <input
+                type="radio"
+                name="console-object"
+                checked={selectedObject === "obj1"}
+                value="obj1"
+                label="obj1"
+              />
+              obj1
+            </label>
+            <label onChange={() => setSelectedObject("obj2")}>
+              <input
+                type="radio"
+                name="console-object"
+                checked={selectedObject === "obj2"}
+                value="obj2"
+                label="obj2"
+              />
+              obj2
+            </label>
+            <div onClick={() =>setDisplayed(false)}>XXXX</div>
+          </div>
+          {/* console window */}
+          <ObjectConsole objName={selectedObject} />
+        </div>
+      )}
+      {!isDisplayed && (
+        <div onClick={() =>setDisplayed(true)}>Console</div>
+      )}
     </div>
   );
 };
