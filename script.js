@@ -4,6 +4,7 @@ const { useEffect, useState } = React;
 const ObjectConsole = (props) => {
   const objName = props.objName;
   const [positionX, setPositionX] = useState(0);
+  const [attributeType, setAttributeType] = useState("position");
 
   function updateObjectAttribute(objName) {
     let obj = document.getElementById(objName);
@@ -141,7 +142,7 @@ const ObjectConsole = (props) => {
       />
       <input type="button" value="Reset" onClick={() => resetAttribute()} />
       <div className="console-attribute-selector">
-        <label>
+        <label onChange={() => setAttributeType("position")}>
           <input
             type="radio"
             name={objName + "-attribute"}
@@ -150,7 +151,7 @@ const ObjectConsole = (props) => {
           />
           position
         </label>
-        <label>
+        <label onChange={() => setAttributeType("rotation")}>
           <input
             type="radio"
             name={objName + "-attribute"}
@@ -159,7 +160,7 @@ const ObjectConsole = (props) => {
           />
           rotation
         </label>
-        <label>
+        <label onChange={() => setAttributeType("scale")}>
           <input
             type="radio"
             name={objName + "-attribute"}
@@ -170,151 +171,162 @@ const ObjectConsole = (props) => {
         </label>
       </div>
 
-      <div>
-        X:
-        <input
-          id={objName + "-xPositionText"}
-          type="number"
-          value="0"
-          min="-100"
-          max="100"
-          step="0.1"
-        />
-        <input
-          type="range"
-          min="-10"
-          max="10"
-          step="0.1"
-          value={positionX}
-          id={objName + "-xPositionBar"}
-          onChange={(e) => rangePositionBarOnChange(e, "x")}
-        />
-      </div>
-      <div>
-        Y:
-        <input
-          id={objName + "-yPositionText"}
-          type="number"
-          value="0"
-          min="-100"
-          max="100"
-          step="0.1"
-        />
-        <input
-          type="range"
-          min="-10"
-          max="10"
-          step="0.1"
-          value="0"
-          id={objName + "-yPositionBar"}
-          onChange={(e) => rangePositionBarOnChange(e, "y")}
-        />
-      </div>
-      <div>
-        Z:
-        <input
-          id={objName + "-zPositionText"}
-          type="number"
-          value="-5"
-          min="-100"
-          max="100"
-          step="0.1"
-        />
-        <input
-          type="range"
-          min="-10"
-          max="10"
-          step="0.1"
-          value="0"
-          id={objName + "-zPositionBar"}
-          onChange={(e) => rangePositionBarOnChange(e, "z")}
-        />
-      </div>
-      <div>
-        Scale:
-        <input
-          id={objName + "-ScaleText"}
-          type="number"
-          value="1"
-          min="0"
-          max="100"
-          step="0.1"
-        />
-        <input
-          type="range"
-          min="0"
-          max="10"
-          value="1"
-          step="0.1"
-          id={objName + "-ScaleBar"}
-          onChange={rangeScaleBarOnChange}
-        />
-      </div>
-      <div>
-        X:
-        <input
-          id={objName + "-xRotationText"}
-          type="number"
-          value="0"
-          min="0"
-          max="360"
-          step="1"
-        />
-        <input
-          type="range"
-          min="0"
-          max="360"
-          step="1"
-          value="0"
-          id={objName + "-xRotationBar"}
-          onChange={(e) => rangeRotationBarOnChange(e, "x")}
-        />
-      </div>
-      <div>
-        Y:
-        <input
-          id={objName + "-yRotationText"}
-          type="number"
-          value="0"
-          min="0"
-          max="360"
-          step="1"
-        />
-        <input
-          type="range"
-          min="0"
-          max="360"
-          step="1"
-          value="0"
-          id={objName + "-yRotationBar"}
-          onChange={(e) => rangeRotationBarOnChange(e, "y")}
-        />
-      </div>
-      <div>
-        Z:
-        <input
-          id={objName + "-zRotationText"}
-          type="number"
-          value="0"
-          min="0"
-          max="360"
-          step="1"
-        />
-        <input
-          type="range"
-          min="0"
-          max="360"
-          step="1"
-          value="0"
-          id={objName + "-zRotationBar"}
-          onChange={(e) => rangeRotationBarOnChange(e, "z")}
-        />
-        <input
-          type="button"
-          value="更新"
-          onClick={() => this.updateObjectAttribute("obj1")}
-        />
-      </div>
+      {attributeType === "position" && (
+        <div>
+          <div>
+            X:
+            <input
+              id={objName + "-xPositionText"}
+              type="number"
+              value="0"
+              min="-100"
+              max="100"
+              step="0.1"
+            />
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.1"
+              value={positionX}
+              id={objName + "-xPositionBar"}
+              onChange={(e) => rangePositionBarOnChange(e, "x")}
+            />
+          </div>
+          <div>
+            Y:
+            <input
+              id={objName + "-yPositionText"}
+              type="number"
+              value="0"
+              min="-100"
+              max="100"
+              step="0.1"
+            />
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.1"
+              value="0"
+              id={objName + "-yPositionBar"}
+              onChange={(e) => rangePositionBarOnChange(e, "y")}
+            />
+          </div>
+          <div>
+            Z:
+            <input
+              id={objName + "-zPositionText"}
+              type="number"
+              value="-5"
+              min="-100"
+              max="100"
+              step="0.1"
+            />
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.1"
+              value="0"
+              id={objName + "-zPositionBar"}
+              onChange={(e) => rangePositionBarOnChange(e, "z")}
+            />
+          </div>
+        </div>
+      )}
+      {attributeType === "rotation" && (
+        <div>
+          {" "}
+          <div>
+            X:
+            <input
+              id={objName + "-xRotationText"}
+              type="number"
+              value="0"
+              min="0"
+              max="360"
+              step="1"
+            />
+            <input
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              value="0"
+              id={objName + "-xRotationBar"}
+              onChange={(e) => rangeRotationBarOnChange(e, "x")}
+            />
+          </div>
+          <div>
+            Y:
+            <input
+              id={objName + "-yRotationText"}
+              type="number"
+              value="0"
+              min="0"
+              max="360"
+              step="1"
+            />
+            <input
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              value="0"
+              id={objName + "-yRotationBar"}
+              onChange={(e) => rangeRotationBarOnChange(e, "y")}
+            />
+          </div>
+          <div>
+            Z:
+            <input
+              id={objName + "-zRotationText"}
+              type="number"
+              value="0"
+              min="0"
+              max="360"
+              step="1"
+            />
+            <input
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              value="0"
+              id={objName + "-zRotationBar"}
+              onChange={(e) => rangeRotationBarOnChange(e, "z")}
+            />
+            <input
+              type="button"
+              value="更新"
+              onClick={() => this.updateObjectAttribute("obj1")}
+            />
+          </div>
+        </div>
+      )}
+      {attributeType === "scale" && (
+        <div>
+          Scale:
+          <input
+            id={objName + "-ScaleText"}
+            type="number"
+            value="1"
+            min="0"
+            max="100"
+            step="0.1"
+          />
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value="1"
+            step="0.1"
+            id={objName + "-ScaleBar"}
+            onChange={rangeScaleBarOnChange}
+          />
+        </div>
+      )}
     </div>
   );
 };
