@@ -3,9 +3,16 @@ const { useEffect, useState } = React;
 
 const ObjectConsole = (props) => {
   const objName = props.objName;
+  const [isDisplay, setDisplay] = useState(true);
   const [positionX, setPositionX] = useState(0);
   const [attributeType, setAttributeType] = useState("position");
 
+  function onChangeDisplay() {
+    // let isVisible = document.getElementById(objName + "-isDisplay").checked;
+    let obj = document.getElementById(objName);
+    obj.setAttribute("visible", !isDisplay);
+    setDisplay(!isDisplay);
+  }
   function updateObjectPosition(objName, x, y, z) {
     let obj = document.getElementById(objName);
     let position = obj.getAttribute("position");
@@ -87,7 +94,6 @@ const ObjectConsole = (props) => {
     updateObjectPosition(objName, position.x, position.y, position.z);
   }
   function resetAttribute() {
-    console.log("reset");
     let obj = document.getElementById(objName);
     let position = obj.getAttribute("position");
     let rotation = obj.getAttribute("rotation");
@@ -107,13 +113,23 @@ const ObjectConsole = (props) => {
     obj.setAttribute("rotation", rotation);
     obj.setAttribute("scale", scale);
 
-    document.getElementById(objName + "-xPositionText").value = 0;
-    document.getElementById(objName + "-yPositionText").value = 0;
-    document.getElementById(objName + "-zPositionText").value = 0;
-    document.getElementById(objName + "-xRotationText").value = 0;
-    document.getElementById(objName + "-yRotationText").value = 0;
-    document.getElementById(objName + "-zRotationText").value = 0;
-    document.getElementById(objName + "-ScaleText").value = 1;
+    switch (attributeType) {
+      case "position":
+        document.getElementById(objName + "-xPositionText").value = 0;
+        document.getElementById(objName + "-yPositionText").value = 0;
+        document.getElementById(objName + "-zPositionText").value = 0;
+        break;
+      case "rotation":
+        document.getElementById(objName + "-xRotationText").value = 0;
+        document.getElementById(objName + "-yRotationText").value = 0;
+        document.getElementById(objName + "-zRotationText").value = 0;
+        break;
+      case "scale":
+        document.getElementById(objName + "-ScaleText").value = 1;
+        break;
+      default:
+        break;
+    }
   }
 
   return (
@@ -122,8 +138,8 @@ const ObjectConsole = (props) => {
       <input
         type="checkbox"
         id={objName + "-isDisplay"}
-        checked
-        onChange={() => console.log("aaa")}
+        checked={isDisplay}
+        onChange={() => onChangeDisplay()}
       />
       <input type="button" value="Reset" onClick={() => resetAttribute()} />
       <div className="console-attribute-selector">
