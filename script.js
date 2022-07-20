@@ -238,7 +238,6 @@ const ObjectConsole = (props) => {
   const [attributeType, setAttributeType] = useState("position");
 
   function onChangeDisplay() {
-    // let isVisible = document.getElementById(objName + "-isDisplay").checked;
     let obj = document.getElementById(objName);
     obj.setAttribute("visible", !isDisplay);
     setDisplay(!isDisplay);
@@ -297,6 +296,7 @@ const ObjectConsole = (props) => {
           <input
             type="radio"
             name={objName + "-attribute"}
+            checked={attributeType === "position"}
             value="position"
             label="position"
           />
@@ -306,6 +306,7 @@ const ObjectConsole = (props) => {
           <input
             type="radio"
             name={objName + "-attribute"}
+            checked={attributeType === "rotation"}
             value="rotation"
             label="rotation"
           />
@@ -315,6 +316,7 @@ const ObjectConsole = (props) => {
           <input
             type="radio"
             name={objName + "-attribute"}
+            checked={attributeType === "scale"}
             value="scale"
             label="scale"
           />
@@ -335,6 +337,7 @@ const Console = () => {
           <input
             type="radio"
             name="console-object"
+            checked={selectedObject === "obj1"}
             value="obj1"
             label="obj1"
           />
@@ -344,6 +347,7 @@ const Console = () => {
           <input
             type="radio"
             name="console-object"
+            checked={selectedObject === "obj2"}
             value="obj2"
             label="obj2"
           />
