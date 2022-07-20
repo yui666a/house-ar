@@ -139,11 +139,37 @@ const ObjectConsole = (props) => {
         checked
         onChange={() => console.log("aaa")}
       />
-      <input
-        type="button"
-        value="Reset"
-        onClick={() => resetAttribute()}
-      />
+      <input type="button" value="Reset" onClick={() => resetAttribute()} />
+      <div className="console-attribute-selector">
+        <label>
+          <input
+            type="radio"
+            name={objName + "-attribute"}
+            value="position"
+            label="position"
+          />
+          position
+        </label>
+        <label>
+          <input
+            type="radio"
+            name={objName + "-attribute"}
+            value="rotation"
+            label="rotation"
+          />
+          rotation
+        </label>
+        <label>
+          <input
+            type="radio"
+            name={objName + "-attribute"}
+            value="scale"
+            label="scale"
+          />
+          scale
+        </label>
+      </div>
+
       <div>
         X:
         <input
