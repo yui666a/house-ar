@@ -6,21 +6,6 @@ const ObjectConsole = (props) => {
   const [positionX, setPositionX] = useState(0);
   const [attributeType, setAttributeType] = useState("position");
 
-  function updateObjectAttribute(objName) {
-    let obj = document.getElementById(objName);
-    let position = obj.getAttribute("position");
-    // let rotation = obj.getAttribute('rotation');
-
-    position.x = document.getElementById(objName + "-xPositionText").value;
-    position.y = document.getElementById(objName + "-yPositionText").value;
-    position.z = document.getElementById(objName + "-zPositionText").value;
-
-    obj.setAttribute("position", position);
-
-    let isVisible = document.getElementById(objName + "-isDisplay").checked;
-    obj.setAttribute("visible", isVisible);
-  }
-
   function updateObjectPosition(objName, x, y, z) {
     let obj = document.getElementById(objName);
     let position = obj.getAttribute("position");
@@ -296,11 +281,6 @@ const ObjectConsole = (props) => {
               value="0"
               id={objName + "-zRotationBar"}
               onChange={(e) => rangeRotationBarOnChange(e, "z")}
-            />
-            <input
-              type="button"
-              value="更新"
-              onClick={() => this.updateObjectAttribute("obj1")}
             />
           </div>
         </div>
