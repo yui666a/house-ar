@@ -334,6 +334,7 @@ const Console = () => {
         <label onChange={() => setSelectedObject("obj1")}>
           <input
             type="radio"
+            name="console-object"
             value="obj1"
             label="obj1"
           />
@@ -342,6 +343,7 @@ const Console = () => {
         <label onChange={() => setSelectedObject("obj2")}>
           <input
             type="radio"
+            name="console-object"
             value="obj2"
             label="obj2"
           />
