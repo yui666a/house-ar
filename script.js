@@ -1,18 +1,10 @@
 // import SelectItem from './script/SelectItem.js';
 const { useEffect, useState } = React;
 
-const ObjectConsole = (props) => {
+const ObjectConsoleXYZ = (props) => {
+  const attributeType = props.attributeType;
   const objName = props.objName;
-  const [isDisplay, setDisplay] = useState(true);
-  const [positionX, setPositionX] = useState(0);
-  const [attributeType, setAttributeType] = useState("position");
 
-  function onChangeDisplay() {
-    // let isVisible = document.getElementById(objName + "-isDisplay").checked;
-    let obj = document.getElementById(objName);
-    obj.setAttribute("visible", !isDisplay);
-    setDisplay(!isDisplay);
-  }
   function updateObjectPosition(objName, x, y, z) {
     let obj = document.getElementById(objName);
     let position = obj.getAttribute("position");
@@ -29,6 +21,30 @@ const ObjectConsole = (props) => {
     rotation.y = y;
     rotation.z = z;
     obj.setAttribute("rotation", rotation);
+  }
+
+  function rangePositionBarOnChange(e, axis) {
+    let obj = document.getElementById(objName);
+    let position = obj.getAttribute("position");
+
+    let posXTxt = document.getElementById(objName + "-xPositionText");
+    let posYTxt = document.getElementById(objName + "-yPositionText");
+    let posZTxt = document.getElementById(objName + "-zPositionText");
+    position.x = posXTxt.value;
+    position.y = posYTxt.value;
+    position.z = posZTxt.value;
+
+    if (axis === "x") {
+      position.x = e.target.value;
+      posXTxt.value = position.x;
+    } else if (axis === "y") {
+      position.y = e.target.value;
+      posYTxt.value = position.y;
+    } else if (axis === "z") {
+      position.z = e.target.value;
+      posZTxt.value = position.z;
+    }
+    updateObjectPosition(objName, position.x, position.y, position.z);
   }
 
   function rangeRotationBarOnChange(e, axis) {
@@ -55,7 +71,6 @@ const ObjectConsole = (props) => {
     updateObjectRotation(objName, rotation.x, rotation.y, rotation.z);
   }
 
-  // inputイベント時に値をセットする関数
   function rangeScaleBarOnChange(e) {
     let obj = document.getElementById(objName);
     let scale = obj.getAttribute("scale");
@@ -68,30 +83,165 @@ const ObjectConsole = (props) => {
     obj.setAttribute("scale", scale);
   }
 
-  // inputイベント時に値をセットする関数
-  function rangePositionBarOnChange(e, axis) {
+  return (
+    <div>
+      {attributeType === "position" && (
+        <div>
+          <div>
+            X:
+            <input
+              id={objName + "-xPositionText"}
+              type="number"
+              value="0"
+              min="-100"
+              max="100"
+              step="0.1"
+            />
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.1"
+              id={objName + "-xPositionBar"}
+              onChange={(e) => rangePositionBarOnChange(e, "x")}
+            />
+          </div>
+          <div>
+            Y:
+            <input
+              id={objName + "-yPositionText"}
+              type="number"
+              value="0"
+              min="-100"
+              max="100"
+              step="0.1"
+            />
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.1"
+              id={objName + "-yPositionBar"}
+              onChange={(e) => rangePositionBarOnChange(e, "y")}
+            />
+          </div>
+          <div>
+            Z:
+            <input
+              id={objName + "-zPositionText"}
+              type="number"
+              value="-5"
+              min="-100"
+              max="100"
+              step="0.1"
+            />
+            <input
+              type="range"
+              min="-10"
+              max="10"
+              step="0.1"
+              id={objName + "-zPositionBar"}
+              onChange={(e) => rangePositionBarOnChange(e, "z")}
+            />
+          </div>
+        </div>
+      )}
+      {attributeType === "rotation" && (
+        <div>
+          <div>
+            X:
+            <input
+              id={objName + "-xRotationText"}
+              type="number"
+              value="0"
+              min="0"
+              max="360"
+              step="1"
+            />
+            <input
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              id={objName + "-xRotationBar"}
+              onChange={(e) => rangeRotationBarOnChange(e, "x")}
+            />
+          </div>
+          <div>
+            Y:
+            <input
+              id={objName + "-yRotationText"}
+              type="number"
+              value="0"
+              min="0"
+              max="360"
+              step="1"
+            />
+            <input
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              id={objName + "-yRotationBar"}
+              onChange={(e) => rangeRotationBarOnChange(e, "y")}
+            />
+          </div>
+          <div>
+            Z:
+            <input
+              id={objName + "-zRotationText"}
+              type="number"
+              value="0"
+              min="0"
+              max="360"
+              step="1"
+            />
+            <input
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              id={objName + "-zRotationBar"}
+              onChange={(e) => rangeRotationBarOnChange(e, "z")}
+            />
+          </div>
+        </div>
+      )}
+      {attributeType === "scale" && (
+        <div>
+          Scale:
+          <input
+            id={objName + "-ScaleText"}
+            type="number"
+            value="1"
+            min="0"
+            max="100"
+            step="0.1"
+          />
+          <input
+            type="range"
+            min="0"
+            max="10"
+            step="0.1"
+            id={objName + "-ScaleBar"}
+            onChange={rangeScaleBarOnChange}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ObjectConsole = (props) => {
+  const objName = props.objName;
+  const [isDisplay, setDisplay] = useState(true);
+  const [attributeType, setAttributeType] = useState("position");
+
+  function onChangeDisplay() {
+    // let isVisible = document.getElementById(objName + "-isDisplay").checked;
     let obj = document.getElementById(objName);
-    let position = obj.getAttribute("position");
-
-    let posXTxt = document.getElementById(objName + "-xPositionText");
-    let posYTxt = document.getElementById(objName + "-yPositionText");
-    let posZTxt = document.getElementById(objName + "-zPositionText");
-    position.x = posXTxt.value;
-    position.y = posYTxt.value;
-    position.z = posZTxt.value;
-
-    if (axis === "x") {
-      position.x = e.target.value;
-      posXTxt.value = position.x;
-      setPositionX(position.x);
-    } else if (axis === "y") {
-      position.y = e.target.value;
-      posYTxt.value = position.y;
-    } else if (axis === "z") {
-      position.z = e.target.value;
-      posZTxt.value = position.z;
-    }
-    updateObjectPosition(objName, position.x, position.y, position.z);
+    obj.setAttribute("visible", !isDisplay);
+    setDisplay(!isDisplay);
   }
   function resetAttribute() {
     let obj = document.getElementById(objName);
@@ -171,158 +321,7 @@ const ObjectConsole = (props) => {
           scale
         </label>
       </div>
-
-      {attributeType === "position" && (
-        <div>
-          <div>
-            X:
-            <input
-              id={objName + "-xPositionText"}
-              type="number"
-              value="0"
-              min="-100"
-              max="100"
-              step="0.1"
-            />
-            <input
-              type="range"
-              min="-10"
-              max="10"
-              step="0.1"
-              value={positionX}
-              id={objName + "-xPositionBar"}
-              onChange={(e) => rangePositionBarOnChange(e, "x")}
-            />
-          </div>
-          <div>
-            Y:
-            <input
-              id={objName + "-yPositionText"}
-              type="number"
-              value="0"
-              min="-100"
-              max="100"
-              step="0.1"
-            />
-            <input
-              type="range"
-              min="-10"
-              max="10"
-              step="0.1"
-              value="0"
-              id={objName + "-yPositionBar"}
-              onChange={(e) => rangePositionBarOnChange(e, "y")}
-            />
-          </div>
-          <div>
-            Z:
-            <input
-              id={objName + "-zPositionText"}
-              type="number"
-              value="-5"
-              min="-100"
-              max="100"
-              step="0.1"
-            />
-            <input
-              type="range"
-              min="-10"
-              max="10"
-              step="0.1"
-              value="0"
-              id={objName + "-zPositionBar"}
-              onChange={(e) => rangePositionBarOnChange(e, "z")}
-            />
-          </div>
-        </div>
-      )}
-      {attributeType === "rotation" && (
-        <div>
-          {" "}
-          <div>
-            X:
-            <input
-              id={objName + "-xRotationText"}
-              type="number"
-              value="0"
-              min="0"
-              max="360"
-              step="1"
-            />
-            <input
-              type="range"
-              min="0"
-              max="360"
-              step="1"
-              value="0"
-              id={objName + "-xRotationBar"}
-              onChange={(e) => rangeRotationBarOnChange(e, "x")}
-            />
-          </div>
-          <div>
-            Y:
-            <input
-              id={objName + "-yRotationText"}
-              type="number"
-              value="0"
-              min="0"
-              max="360"
-              step="1"
-            />
-            <input
-              type="range"
-              min="0"
-              max="360"
-              step="1"
-              value="0"
-              id={objName + "-yRotationBar"}
-              onChange={(e) => rangeRotationBarOnChange(e, "y")}
-            />
-          </div>
-          <div>
-            Z:
-            <input
-              id={objName + "-zRotationText"}
-              type="number"
-              value="0"
-              min="0"
-              max="360"
-              step="1"
-            />
-            <input
-              type="range"
-              min="0"
-              max="360"
-              step="1"
-              value="0"
-              id={objName + "-zRotationBar"}
-              onChange={(e) => rangeRotationBarOnChange(e, "z")}
-            />
-          </div>
-        </div>
-      )}
-      {attributeType === "scale" && (
-        <div>
-          Scale:
-          <input
-            id={objName + "-ScaleText"}
-            type="number"
-            value="1"
-            min="0"
-            max="100"
-            step="0.1"
-          />
-          <input
-            type="range"
-            min="0"
-            max="10"
-            value="1"
-            step="0.1"
-            id={objName + "-ScaleBar"}
-            onChange={rangeScaleBarOnChange}
-          />
-        </div>
-      )}
+      <ObjectConsoleXYZ attributeType={attributeType} objName={objName} />
     </div>
   );
 };
