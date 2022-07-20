@@ -56,7 +56,7 @@
         position="-1 -1 -5"
         geometry="primitive: plane; height: 1; width: 1"
       ></a-entity>
-      <a-entity
+      <!-- <a-entity
         id="obj1"
         class="clickable"
         click-play=""
@@ -64,7 +64,51 @@
         scale="1 1 1"
         rotation="270 270 0"
         position="1 -1 -5"
-      ></a-entity>
+      ></a-entity> -->
+      <a-entity
+        id="obj1"
+        class="clickable"
+        click-play=""
+        scale="1 1 1"
+        rotation="0 0 0"
+        position="0 0 0"
+      >
+        <a-box
+          color="#5d2906"
+          depth="0.1"
+          height="0.3"
+          width="0.1"
+          position="0.5 0.15 0.3"
+        ></a-box>
+        <a-box
+          color="#5d2906"
+          depth="0.1"
+          height="0.3"
+          width="0.1"
+          position="0.5 0.15 -0.3"
+        ></a-box>
+        <a-box
+          color="#5d2906"
+          depth="0.1"
+          height="0.3"
+          width="0.1"
+          position="-0.5 0.15 0.3"
+        ></a-box>
+        <a-box
+          color="#5d2906"
+          depth="0.1"
+          height="0.3"
+          width="0.1"
+          position="-0.5 0.15 -0.3"
+        ></a-box>
+        <a-box
+          color="#5d2906"
+          depth="0.7"
+          height="0.05"
+          width="1.1"
+          position="0 0.3 0"
+        ></a-box>
+      </a-entity>
 
       <!-- Camera + cursor. -->
       <a-entity id="cameraRig" position="0 1.6 0">
