@@ -130,7 +130,7 @@ const ObjectConsoleXYZ = (props) => {
             <input
               id={objName + "-zPositionText"}
               type="number"
-              value="-5"
+              value="0"
               min="-100"
               max="100"
               step="0.1"
