@@ -359,6 +359,16 @@ const Console = () => {
             />
             obj2
           </label>
+          <label onChange={() => setSelectedObject("obj3")}>
+            <input
+              type="radio"
+              name="console-object"
+              checked={selectedObject === "obj3"}
+              value="obj2"
+              label="obj2"
+            />
+            obj3
+          </label>
         </div>
         <div
           className="console-undisplayed-button"
